@@ -61,9 +61,7 @@ for i in 5...10 {
 
 print("**************************Find Solution Number Only*********************************")
 let n = 100
-Timing {
-    print(String(format:"\nFindSolutionNumber(n:%d) = %d", n, FindSolutionNumber(n: n)))
-}
+print(String(format:"\nFindSolutionNumber(n:%d) = %d", n, FindSolutionNumber(n: n)))
 
 // see : https://stackoverflow.com/questions/24131323/in-swift-can-i-use-a-tuple-as-the-key-in-a-dictionary
 struct Tuple<T:Hashable, U:Hashable> : Hashable {
@@ -137,6 +135,9 @@ let findsolOnlyNum = memoize {
 print("******************Find Solution Number Only (With DP Table)*************************")
 Timing {
     print("findsolOnlyNum(n:100) = ", findsolOnlyNum(100, 1))
+}
+Timing {
+    print(String(format:"\nFindSolutionNumber(n:%d) = %d", n, FindSolutionNumber(n: n)))
 }
 
 func memoize<T, U>( body: @escaping ((T, T, Array<Int>)->U, T, T, Array<Int>) ->U ) -> (T, T, Array<Int>)->U {
